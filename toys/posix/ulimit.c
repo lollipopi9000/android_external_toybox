@@ -77,7 +77,7 @@ void ulimit_main(void)
 
     int get = toys.optflags&(FLAG_a|(1<<i));
 
-    if (get && prlimit(TT.pid, map[i], 0, &rr)) perror_exit("-%c", flags[i]);
+//    if (get && prlimit(TT.pid, map[i], 0, &rr)) perror_exit("-%c", flags[i]);
     if (!toys.optc) {
       if (toys.optflags&FLAG_a) printf("-%c: ", flags[i]);
       if (get) {
@@ -112,6 +112,6 @@ void ulimit_main(void)
 
     if (toys.optflags&FLAG_H) rr.rlim_max = val;
     else rr.rlim_cur = val;
-    if (prlimit(TT.pid, map[i], &rr, 0)) perror_exit(0);
+  //  if (prlimit(TT.pid, map[i], &rr, 0)) perror_exit(0);
   }
 }
